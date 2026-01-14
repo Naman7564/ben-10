@@ -11,13 +11,11 @@ const Navbar = () => {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const navbarHeight = 80; // Approximate navbar height
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
+      // Scroll to the exact top of the section
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
       });
 
       setMenuOpen(false);
