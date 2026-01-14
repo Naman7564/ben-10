@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Slider.css";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
+import MobileHeader from "./MobileHeader";
 
 const Slider = () => {
   const aliens = [
@@ -91,6 +92,7 @@ const Slider = () => {
       className="slider"
       style={{ background: aliens[index].background }}
     >
+      <MobileHeader />
       <button className="arrow left-arrow" onClick={handlePrev}>
         <FaChevronLeft size={28} />
       </button>
@@ -164,8 +166,9 @@ const Slider = () => {
             custom={direction}
             initial={{ y: direction === "next" ? -80 : 80, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-       exit = {{y:direction === "next" ? 80 : -80 , opacity:0}}
-       transition={{duration:0.6, ease : "easeInOut"}}
+            exit={{ y: direction === "next" ? 80 : -80, opacity: 0 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            style={{ "--alien-image": `url(${aliens[index].img})` }}
           >
             <h1>{aliens[index].name}</h1>
             {aliens[index].description.split("\n\n").map((para, i) => (

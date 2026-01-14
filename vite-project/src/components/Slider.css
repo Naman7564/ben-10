@@ -206,77 +206,198 @@
 
 @media (max-width: 768px) {
   .slider {
-    padding: 30px 15px;
-    padding-top: 80px;
+    flex-direction: column;
+    padding: 0;
+    padding-top: 60px;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
   }
 
+  /* Hide desktop slider images layout */
   .slider-images {
-    width: 400px;
-    height: 400px;
+    display: none;
   }
 
-  .alien-img {
-    width: 250px;
+  /* Mobile encyclopedia card layout */
+  .slider-info-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    order: 1;
+    margin-top: 0;
+    position: relative;
+    overflow-y: auto;
+    padding-bottom: 120px;
   }
 
   .slider-info {
-    max-width: 500px;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Mobile alien image - centered and prominent */
+  .slider-info::before {
+    content: '';
+    width: 100%;
+    height: 350px;
+    background-image: var(--alien-image);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
   }
 
   .slider-info h1 {
-    font-size: 28px;
-    margin-bottom: 15px;
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+    line-height: 1.2;
   }
 
   .slider-info p {
-    font-size: 13px;
+    font-size: 15px;
     line-height: 1.8;
+    text-align: left;
+    width: 100%;
+    max-width: 100%;
+    color: #e0e0e0;
+    margin-bottom: 15px;
   }
 
+  .slider-info p:first-of-type {
+    color: #6eb5ff;
+    font-weight: 600;
+  }
+
+  /* Decorative tech patterns */
+  .slider::before,
+  .slider::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #00ff88, transparent);
+    opacity: 0.3;
+    z-index: 1;
+  }
+
+  .slider::before {
+    top: 380px;
+    left: 0;
+  }
+
+  .slider::after {
+    top: 420px;
+    left: 0;
+  }
+
+  /* Navigation buttons - circular design at bottom */
   .arrow {
-    padding: 10px;
+    position: fixed;
+    bottom: 40px;
+    top: auto;
+    transform: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(0, 255, 136, 0.15);
+    border: 2px solid #00ff88;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    z-index: 100;
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+  }
+
+  .arrow:hover {
+    background: rgba(0, 255, 136, 0.3);
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+  }
+
+  .left-arrow {
+    left: 60px;
+  }
+
+  .right-arrow {
+    right: 60px;
+    left: auto;
+  }
+
+  /* Button labels */
+  .left-arrow::after {
+    content: 'Previous Alien';
+    position: absolute;
+    bottom: -25px;
+    font-size: 11px;
+    color: #6eb5ff;
+    white-space: nowrap;
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .right-arrow::after {
+    content: 'Next Alien';
+    position: absolute;
+    bottom: -25px;
+    font-size: 11px;
+    color: #6eb5ff;
+    white-space: nowrap;
+    font-family: 'Orbitron', sans-serif;
   }
 }
 
 @media (max-width: 480px) {
   .slider {
-    padding: 20px 10px;
     padding-top: 70px;
   }
 
-  .slider-images {
-    width: 300px;
-    height: 300px;
-  }
-
-  .alien-img {
-    width: 200px;
+  .slider-info::before {
+    height: 280px;
+    margin-bottom: 15px;
   }
 
   .slider-info {
-    max-width: 100%;
-    padding: 0 10px;
+    padding: 0 15px;
   }
 
   .slider-info h1 {
-    font-size: 24px;
-    margin-bottom: 12px;
+    font-size: 36px;
+    margin-bottom: 15px;
   }
 
   .slider-info p {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 1.7;
   }
 
   .arrow {
-    padding: 8px;
+    width: 50px;
+    height: 50px;
+    bottom: 30px;
   }
 
   .left-arrow {
-    left: 10px;
+    left: 30px;
   }
 
   .right-arrow {
-    right: 10px;
+    right: 30px;
+  }
+
+  .left-arrow::after,
+  .right-arrow::after {
+    font-size: 10px;
+    bottom: -22px;
   }
 }
