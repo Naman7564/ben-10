@@ -1,5 +1,6 @@
 
 import './App.css'
+import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Slider from './components/Slider'
 import Episodes from './components/Episodes'
@@ -10,6 +11,7 @@ function App() {
 
   return (
     <>
+      <Navbar />
       <div id="home">
         <Hero />
       </div>
