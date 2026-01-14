@@ -1,0 +1,308 @@
+.games-section {
+    min-height: 100vh;
+    padding: 100px 50px;
+    background: linear-gradient(135deg, #1a0f0f, #2c0a0a);
+    position: relative;
+    overflow: hidden;
+}
+
+.games-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 50%, rgba(255, 102, 0, 0.1), transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(0, 255, 136, 0.1), transparent 50%);
+    pointer-events: none;
+}
+
+.games-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.games-header h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 56px;
+    color: #ff6600;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 30px rgba(255, 102, 0, 0.5);
+}
+
+.games-subtitle {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    color: #b0b0b0;
+    letter-spacing: 1px;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+    max-width: 1400px;
+    margin: 0 auto 80px;
+    position: relative;
+    z-index: 1;
+}
+
+.game-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 25px;
+    padding: 35px;
+    border: 2px solid rgba(255, 102, 0, 0.3);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.game-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 102, 0, 0.1), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.game-card:hover::before {
+    opacity: 1;
+}
+
+.game-card:hover {
+    border-color: #ff6600;
+    box-shadow: 0 15px 50px rgba(255, 102, 0, 0.4);
+    transform: translateY(-15px);
+}
+
+.game-icon {
+    font-size: 60px;
+    color: #ff6600;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 102, 0, 0.1);
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover .game-icon {
+    transform: rotate(360deg) scale(1.1);
+}
+
+.game-content {
+    position: relative;
+    z-index: 1;
+}
+
+.game-tags {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.category-tag {
+    background: rgba(0, 255, 136, 0.2);
+    color: #00ff88;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.difficulty-tag {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.difficulty-tag.easy {
+    background: rgba(0, 255, 0, 0.2);
+    color: #00ff00;
+}
+
+.difficulty-tag.medium {
+    background: rgba(255, 165, 0, 0.2);
+    color: #ffa500;
+}
+
+.difficulty-tag.hard {
+    background: rgba(255, 0, 0, 0.2);
+    color: #ff4444;
+}
+
+.game-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 26px;
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.game-description {
+    color: #d0d0d0;
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.game-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.players-info {
+    color: #b0b0b0;
+    font-size: 13px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.play-game-btn {
+    background: linear-gradient(135deg, #ff6600, #ff8800);
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+.play-game-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255, 102, 0, 0.5);
+}
+
+.games-cta {
+    text-align: center;
+    padding: 60px 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 30px;
+    border: 2px solid rgba(255, 102, 0, 0.3);
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.games-cta h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 32px;
+    color: #ff6600;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.games-cta p {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 16px;
+    color: #d0d0d0;
+    margin-bottom: 30px;
+}
+
+.download-btn {
+    background: linear-gradient(135deg, #00ff88, #00cc70);
+    border: none;
+    color: #000;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(0, 255, 136, 0.5);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .games-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+    }
+
+    .games-header h2 {
+        font-size: 48px;
+    }
+}
+
+@media (max-width: 768px) {
+    .games-section {
+        padding: 80px 20px;
+    }
+
+    .games-header h2 {
+        font-size: 36px;
+    }
+
+    .games-subtitle {
+        font-size: 16px;
+    }
+
+    .games-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .games-cta h3 {
+        font-size: 26px;
+    }
+
+    .games-cta p {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .games-section {
+        padding: 60px 15px;
+    }
+
+    .games-header h2 {
+        font-size: 28px;
+    }
+
+    .game-card {
+        padding: 25px;
+    }
+
+    .game-title {
+        font-size: 22px;
+    }
+
+    .games-cta {
+        padding: 40px 20px;
+    }
+
+    .games-cta h3 {
+        font-size: 22px;
+    }
+}

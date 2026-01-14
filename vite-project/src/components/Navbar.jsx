@@ -8,6 +8,14 @@ const Navbar = () => {
     setMenuOpen(!menuOpen);
   };
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setMenuOpen(false);
+    }
+  };
+
   return (
     <div className="navbar">
       <div className="logo">
@@ -15,11 +23,11 @@ const Navbar = () => {
       </div>
 
       <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
-        <li onClick={() => setMenuOpen(false)}>Home</li>
-        <li onClick={() => setMenuOpen(false)}>Aliens</li>
-        <li onClick={() => setMenuOpen(false)}>Episodes</li>
-        <li onClick={() => setMenuOpen(false)}>Games</li>
-        <li onClick={() => setMenuOpen(false)}>About</li>
+        <li onClick={() => scrollToSection('home')}>Home</li>
+        <li onClick={() => scrollToSection('aliens')}>Aliens</li>
+        <li onClick={() => scrollToSection('episodes')}>Episodes</li>
+        <li onClick={() => scrollToSection('games')}>Games</li>
+        <li onClick={() => scrollToSection('about')}>About</li>
       </ul>
 
       <div className="nav-buttons">
