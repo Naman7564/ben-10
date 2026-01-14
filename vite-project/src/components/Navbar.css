@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-*{
-    padding: 0;
-    margin: 0;
+
+* {
+  padding: 0;
+  margin: 0;
 }
+
 .navbar {
   width: 100%;
   position: fixed;
@@ -37,7 +39,7 @@
 }
 
 .nav-links li:hover {
-  color: #00ff88; 
+  color: #00ff88;
 }
 
 .nav-buttons {
@@ -75,4 +77,120 @@
 .btn-fill:hover {
   background: transparent;
   color: #00ff88;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .navbar {
+    gap: 200px;
+    padding: 15px 30px;
+  }
+
+  .nav-links {
+    gap: 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 992px) {
+  .navbar {
+    gap: 100px;
+    padding: 15px 20px;
+  }
+
+  .nav-links {
+    gap: 15px;
+    font-size: 13px;
+  }
+
+  .logo img {
+    width: 100px;
+  }
+
+  .btn {
+    padding: 6px 15px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    justify-content: space-between;
+    gap: 0;
+    padding: 15px 20px;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: rgba(4, 112, 61, 0.98);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-size: 18px;
+    transition: right 0.4s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-buttons {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-links.active~.nav-buttons {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    width: 80px;
+  }
+
+  .nav-links {
+    width: 85%;
+    font-size: 16px;
+    gap: 25px;
+  }
+
+  .btn {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
 }
