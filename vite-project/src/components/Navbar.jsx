@@ -11,14 +11,24 @@ const Navbar = () => {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const navbarHeight = 80; // Approximate navbar height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+
       setMenuOpen(false);
+    } else {
+      console.error(`Element with id "${sectionId}" not found`);
     }
   };
 
   return (
     <div className="navbar">
-      <div className="logo">
+      <div className="logo" onClick={() => scrollToSection('home')} style={{ cursor: 'pointer' }}>
         <img src="/images/logo.png" alt="Ben 10 Logo" />
       </div>
 
